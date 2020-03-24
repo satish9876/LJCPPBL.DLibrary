@@ -23,6 +23,8 @@
 
 const char *CPP_BASE_STRING = "cpp says hello to %s";
 
+/* old code for fuzzy search*/
+
 struct CustomAlphaCmp {
     int table[1 << CHAR_BIT];
 
@@ -179,7 +181,8 @@ const int SearchString(string text, string pattern, int k) {
     return result;
 }
 
-// Private implementation
+/*new working code for fuzzy search*/
+
 static bool fuzzy_match_recursive(const char *pattern, const char *str, int &outScore,
                                   const char *strBegin, uint8_t const *srcMatches, uint8_t *matches,
                                   int maxMatches,
@@ -444,7 +447,7 @@ performFuzzySearchNew(const std::vector<LJCPPBL_Models::MenuAndDestinationItem> 
 
 }
 
-/* check tag contains*/
+/* perform fuzzy search, only on tag*/
 
 const std::string
 performFuzzySearchTag(const std::string pattern, const std::string destinationName,
