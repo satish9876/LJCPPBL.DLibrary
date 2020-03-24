@@ -135,7 +135,6 @@ const char *concatenateMyStringWithCppString(const char *myString) {
 }
 
 
-
 /* fuzzy search with vector*/
 const int SearchString(string text, string pattern, int k) {
     int result = -1;
@@ -360,23 +359,7 @@ performFuzzySearchNew(const std::vector<LJCPPBL_Models::MenuAndDestinationItem> 
                                               score, false);
         if (isDataMatched && score > 49) { // 49
             matches.emplace_back(score + 10, &entry);
-        }/* else if (patternTemp.size() > 3 && isDataMatched == false) {
-            patternTemp.erase(patternTemp.begin());
-
-            int scoreTag;
-            bool isDataMatched = fuzzy_match_test(patternTemp.c_str(),
-                                                  entry.destinationName.c_str(),
-                                                  scoreTag);
-
-            if (isDataMatched == false) {
-                patternTemp.erase(patternTemp.begin());
-                isDataMatched = fuzzy_match_test(patternTemp.c_str(), entry.destinationName.c_str(),
-                                                 scoreTag);
-            }
-            if (isDataMatched && scoreTag > 0) {
-                matches.emplace_back(scoreTag, &entry);
-            }
-        }*/ else {
+        } else {
 
             string tempTags = entry.tags;
             bool isDestinationAndTag = false;
@@ -417,14 +400,6 @@ performFuzzySearchNew(const std::vector<LJCPPBL_Models::MenuAndDestinationItem> 
                      * other wise traverse all the tag from 0....n */
                     if (isDestinationAndTag)
                         break;
-                    /*      int scoreTag;
-                          bool isDataMatched = fuzzy_match_test(pattern.c_str(), data.c_str(),
-                                                                scoreTag);
-                          if (isDataMatched && scoreTag > 49) {
-                              matches.emplace_back(scoreTag, &entry);
-                              isDestinationAndTag = true;
-                              break;
-                          }*/
                 }
             }
 
