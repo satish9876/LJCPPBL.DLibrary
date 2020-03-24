@@ -30,20 +30,6 @@
 RestClient::Connection::Connection(const std::string &baseUrl)
         : lastRequest(), headerFields() {
 
-/*    CURL *curl;
-    curl = curl_easy_init();
-    curl_easy_setopt(curl, CURLOPT_URL, baseUrl.c_str());
-    curl_easy_setopt(curl, CURLOPT_USERAGENT, "libcurl-agent/1.0");
-
-    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
-    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
-
-    CURLcode res = curl_easy_perform(curl);
-    if (res != CURLE_OK) {
-        //LOGI("CURL failed with error code %d", res);
-    }
-    curl_easy_cleanup(curl);*/
-
     this->curlHandle = curl_easy_init();
     if (!this->curlHandle) {
         throw std::runtime_error("Couldn't initialize curl handle");
