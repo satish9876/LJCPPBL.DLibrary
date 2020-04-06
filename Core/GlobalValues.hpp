@@ -21,6 +21,13 @@ public:
 public:
     unordered_map <string, Destination> MapDestinationsNew;
 
+public:
+    string destinationJson;
+public:
+    string menuJson;
+public:
+    string mapFloorBeaconJSON;
+
 
 public:
     unordered_map<long, FloorPlan> FloorPlans;
@@ -86,6 +93,9 @@ public:
         PixelToFeetRatio = gl->PixelToFeetRatio;
         CustomEdges = gl->CustomEdges;
         MapDestinations = gl->MapDestinations;
+        destinationJson = gl->destinationJson;
+        menuJson = gl->menuJson;
+        mapFloorBeaconJSON = gl->mapFloorBeaconJSON;
         MapDestinationsNew = gl->MapDestinationsNew;
         FloorPlans = gl->FloorPlans;
         ParkingLots = gl->ParkingLots;

@@ -130,8 +130,6 @@ string readWrite_DROID(std::string filename, std::string jsonfile) {
     } catch (exception &ex) {
         throw ex;
     }
-
-    return "";
 }
 
 

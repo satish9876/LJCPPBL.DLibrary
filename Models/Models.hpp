@@ -409,6 +409,10 @@ namespace LJCPPBL_Models {
         string MapPointsAndPathJSON;
     public:
         string MapDestinationJSON;
+    public:
+        string MenuJSON;
+    public:
+        string MapFloorBeaconJSON;
 
     public:
         string ParkingLotDetailsJSON;
@@ -423,6 +427,8 @@ namespace LJCPPBL_Models {
         LJCPPBLCache() {
             MapPointsAndPathJSON = "";
             MapDestinationJSON = "";
+            MenuJSON = "";
+            MapFloorBeaconJSON="";
             ParkingLotDetailsJSON = "";
             DropOffPointsJSON = "";
             ElevatorEdgesJsSON = "";

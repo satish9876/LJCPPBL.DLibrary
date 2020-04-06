@@ -35,6 +35,8 @@ namespace LJCPPBL_DAL {
                         {
                                 {"MapPointsAndPathJSON",  GetMapsAndPointsJSON()},
                                 {"MapDestinationJSON",    GetMapDestinationsJSON()},
+                                {"MenuJSON",              GetMenuJSON()},
+                                {"MapFloorBeaconJSON",    GetMapFloorBeaconJSON()},
                                 {"ParkingLotDetailsJSON", GetParkingDetailsJSON()},
                                 {"DropOffPointsJSON",     GetDropOffPointsJSON()},
                                 {"CustomEdgesJsSON",      GetCustomEdgesJSON()}
@@ -193,6 +195,46 @@ namespace LJCPPBL_DAL {
             }
 
             return LJCPPBLGlobalValues->TempCachedJsonData.MapDestinationJSON;
+        }
+        /* get menu data for directory screen*/
+    public:
+        static string GetMenuJSON() {
+            try {
+                if (LJCPPBLGlobalValues->TempCachedJsonData.MenuJSON == "") {
+                    std::string data = GetResponse(
+                            "/api/clientmenuitem/getmenuitemsios");
+
+                    if (data == "{internet_error}") {
+                        throw std::exception();
+                    } else {
+                        LJCPPBLGlobalValues->TempCachedJsonData.MenuJSON = data;
+                    }
+                }
+            } catch (exception &ex) {
+                throw std::exception();
+            }
+
+            return LJCPPBLGlobalValues->TempCachedJsonData.MenuJSON;
+        }
+
+    public:
+        static string GetMapFloorBeaconJSON() {
+            try {
+                if (LJCPPBLGlobalValues->TempCachedJsonData.MapFloorBeaconJSON == "") {
+                    std::string data = GetResponse(
+                            "/api/mapfloorbeacon/GetByApiKeyV2");
+
+                    if (data == "{internet_error}") {
+                        throw std::exception();
+                    } else {
+                        LJCPPBLGlobalValues->TempCachedJsonData.MapFloorBeaconJSON = data;
+                    }
+                }
+            } catch (exception &ex) {
+                throw std::exception();
+            }
+
+            return LJCPPBLGlobalValues->TempCachedJsonData.MapFloorBeaconJSON;
         }
 
     public:

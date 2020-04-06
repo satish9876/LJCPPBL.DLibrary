@@ -66,7 +66,7 @@ void LJCPPBL_CORE::LJCPPBL::Initialize(string jsonString) {
                         itr.value().get<string>());
             } else if (itr.key() == "MapDestinationJSON") {
 
-
+                LJCPPBLGlobalValues->destinationJson = itr.value();
                 future<unordered_map<string, Destination>> _mapDestination = async(launch::async,
                                                                                    LJCPPBLUtility::DeSerializeJsonToDestinations,
                                                                                    itr.value().get<string>());
@@ -77,6 +77,14 @@ void LJCPPBL_CORE::LJCPPBL::Initialize(string jsonString) {
                 // DeSerializeJsonToDirectoryDestinationNew(itr.value().get<string>());
 
                 //LJCPPBLGlobalValues -> MapDestinations = LJCPPBLUtility::DeSerializeJsonToDestinations(itr.value().get<string>());
+            } else if (itr.key() == "MenuJSON") {
+
+                LJCPPBLGlobalValues->menuJson = itr.value();// = mapDestinationsNew.get();
+
+            } else if (itr.key() == "MapFloorBeaconJSON") {
+
+                LJCPPBLGlobalValues->mapFloorBeaconJSON = itr.value();// = mapDestinationsNew.get();
+
             } else if (itr.key() == "ParkingLotDetailsJSON") {
                 future<unordered_map<long, Parking>> _parkingLots = async(launch::async,
                                                                           LJCPPBLUtility::DeSerializeJsonToParkings,
@@ -109,6 +117,7 @@ void LJCPPBL_CORE::LJCPPBL::Initialize(string jsonString) {
     catch (const std::exception &e) {
         throw e; // exception("Asynch Download issue - unable to download data");
     }
+
 }
 
 /* added new function */

@@ -43,6 +43,12 @@ namespace LJCPPBL_CORE {
         static unordered_map<string, Destination> GetDestinationsList();
 
     public:
+        static string GetDestinationsJson();
+
+    public:
+        static string GetMenuJson();
+
+    public:
         static unordered_map<string, Destination> GetDirectoryData();
 
     public:
