@@ -78,10 +78,12 @@ void LJCPPBL_CORE::LJCPPBL::Initialize(string jsonString) {
 
                 //LJCPPBLGlobalValues -> MapDestinations = LJCPPBLUtility::DeSerializeJsonToDestinations(itr.value().get<string>());
             } else if (itr.key() == "MenuJSON") {
-
+                /*future<vector<LJCPPBL_Models::MenuAndDestinationItem>> _mapDestination= async(launch::async,LJCPPBLUtility::DeSerializeJsonToDirectoryDestination,itr.value().get<string>());
+                               LJCPPBLGlobalValues -> MapDestinationsNew = _mapDestination;*/
                 LJCPPBLGlobalValues->menuJson = itr.value();// = mapDestinationsNew.get();
 
             } else if (itr.key() == "MapFloorBeaconJSON") {
+                //LJCPPBLGlobalValues -> MapDestinations = LJCPPBLUtility::DeSerializeJsonToDestinations(itr.value().get<string>());
 
                 LJCPPBLGlobalValues->mapFloorBeaconJSON = itr.value();// = mapDestinationsNew.get();
 
