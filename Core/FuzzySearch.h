@@ -17,13 +17,18 @@
 
 const char *concatenateMyStringWithCppString(const char *myString);
 
-const std::string performFuzzySearchTag(const std::string pattern,const std::string destinationName, const std::string tagName);
 
 const std::vector<LJCPPBL_Models::MenuAndDestinationItem>
 performFuzzySearchNew(const std::vector<LJCPPBL_Models::MenuAndDestinationItem>,
                       const std::string pattern);
 
+/* prepare temp data ( no need of all attributes ) to perform fuzzy search with */
 const std::vector<LJCPPBL_Models::MenuAndDestinationItem>
-prepareDestData(unordered_map <string, LJCPPBL_Models::Destination> data);
+prepareDestData(unordered_map<string, LJCPPBL_Models::Destination> data);
+
+const std::string
+performFuzzySearchTag(const std::string pattern, const std::string destinationName,
+                      const std::string tagName);
+
 
 #endif /* defined(__HelloCpp__Core__) */

@@ -340,15 +340,14 @@ static bool fuzzy_match_test(char const *pattern, char const *str, int &outScore
     return fuzzy_match(pattern, str, outScore, matches, sizeof(matches), isFromTag);
 }
 
-/* perform fuzzy search on destination name and tags*/
+/* perform fuzzy search on destination name and tags.
+ * if data match in destination name then no need to search in tag*/
 const std::vector<LJCPPBL_Models::MenuAndDestinationItem>
 performFuzzySearchNew(const std::vector<LJCPPBL_Models::MenuAndDestinationItem> dictionary,
                       const std::string pattern) {
 
     std::vector<std::pair<int, LJCPPBL_Models::MenuAndDestinationItem const *>> matches;
     std::vector<std::string> returnDataPattern;
-
-    // std::vector<std::string> returnData;
     std::vector<LJCPPBL_Models::MenuAndDestinationItem> returnData;
 
 
