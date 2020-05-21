@@ -23,6 +23,11 @@ namespace LJCPPBL_CORE {
     class LJCPPBL {
     public:
         static void Initialize(string clientAPIKEY, string apiBaseUri);
+    public:
+        static void Initialize(string clientAPIKEY, string apiBaseUri,string adalToken);
+
+    public:
+        static void InitializeToken(string token);
 
     public:
         static void InitializeByObject(GlobalValues *gl);

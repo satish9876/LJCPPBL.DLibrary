@@ -428,7 +428,7 @@ namespace LJCPPBL_Models {
             MapPointsAndPathJSON = "";
             MapDestinationJSON = "";
             MenuJSON = "";
-            MapFloorBeaconJSON="";
+            MapFloorBeaconJSON = "";
             ParkingLotDetailsJSON = "";
             DropOffPointsJSON = "";
             ElevatorEdgesJsSON = "";
@@ -518,5 +518,13 @@ namespace LJCPPBL_Models {
 
     };
 
+    class Token {
+
+    public:
+        Token() {
+        }
+    public:
+        string id;
+    };
 }
 #endif /* Models_hpp */

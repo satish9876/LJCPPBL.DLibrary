@@ -23,6 +23,19 @@ void LJCPPBL_CORE::LJCPPBL::Initialize(string clientAPIKEY, string apiBaseUri) {
 //    LJCPPBLGlobalValues -> APIBaseUri = apiBaseUri;
 }
 
+void LJCPPBL_CORE::LJCPPBL::Initialize(string clientAPIKEY, string apiBaseUri, string adalToken) {
+    LJCPPBLGlobalValues = new GlobalValues(clientAPIKEY, apiBaseUri, adalToken);
+//    LJCPPBLGlobalValues = *globalValues;
+//    LJCPPBLGlobalValues -> ClientAPIKey = clientAPIKEY;
+//    LJCPPBLGlobalValues -> APIBaseUri = apiBaseUri;
+}
+
+/* for adal token*/
+void LJCPPBL_CORE::LJCPPBL::InitializeToken(string token) {
+    LJCPPBLGlobalValues->ADALAPIToken = token;
+
+}
+
 string LJCPPBL_CORE::LJCPPBL::GetJsonString() {
     return LJCPPBLAPIDAL::GetJosnFromAPI();
     //    LJCPPBLGlobalValues = *globalValues;

@@ -340,8 +340,14 @@ namespace LJCPPBL_DAL {
     private:
         static std::string GetResponse(string uri) {
             try {
+                string apiToken = "";
 
-                string apiToken = GetAPIToken();
+                if (LJCPPBLGlobalValues->ADALAPIToken == "") {
+                    apiToken = GetAPIToken();
+                } else {
+                    apiToken = "bearer " + LJCPPBLGlobalValues->ADALAPIToken;
+                }
+                //string apiToken = GetAPIToken();
                 RestClient::init();
                 RestClient::Connection *conn = new RestClient::Connection(
                         LJCPPBLGlobalValues->APIBaseUri);

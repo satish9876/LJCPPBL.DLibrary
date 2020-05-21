@@ -28,6 +28,14 @@ void Initialize(string clientAPIKEY, string apiBaseUri) {
     LJCPPBL::Initialize(clientAPIKEY, apiBaseUri);
 }
 
+void Initialize(string clientAPIKEY, string apiBaseUri, string adalToken) {
+    LJCPPBL::Initialize(clientAPIKEY, apiBaseUri, adalToken);
+}
+
+void InitializeToken(string adalToken) {
+    LJCPPBL::InitializeToken(adalToken);
+}
+
 EXPORT
 void InitializeJson(string jsonString) {
     LJCPPBL::Initialize(jsonString);

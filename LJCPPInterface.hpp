@@ -20,6 +20,10 @@ using namespace LJCPPBL_Models;
 
 void Initialize(string clientAPIKEY, string apiBaseUri);
 
+void Initialize(string clientAPIKEY, string apiBaseUri, string adalToken);
+
+void InitializeToken(string token);
+
 void InitializeJson(string jsonString);
 
 string *GetJsonString();

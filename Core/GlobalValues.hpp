@@ -56,6 +56,8 @@ public:
 public:
     string APIToken;
 public:
+    string ADALAPIToken;
+public:
     string APIBaseUri;
 
 public:
@@ -64,6 +66,18 @@ public:
         TempCachedJsonData = *cachedJsonData;
         ClientAPIKey = apiKEY;
         APIToken = "";
+        ADALAPIToken = "";
+        APIBaseUri = baseUri;
+        PixelToFeetRatio = 0;
+    }
+
+public:
+    GlobalValues(string apiKEY, string baseUri, string adalToken) {
+        auto cachedJsonData = new LJCPPBLCache();
+        TempCachedJsonData = *cachedJsonData;
+        ClientAPIKey = apiKEY;
+        APIToken = "";
+        ADALAPIToken = adalToken;
         APIBaseUri = baseUri;
         PixelToFeetRatio = 0;
     }
@@ -74,6 +88,7 @@ public:
         TempCachedJsonData = *cachedJsonData;
         ClientAPIKey = "";
         APIToken = "";
+        ADALAPIToken = "";
         APIBaseUri = "";
         PixelToFeetRatio = 0;
     }
@@ -89,6 +104,7 @@ public:
         TempCachedJsonData = *cachedJsonData;
         ClientAPIKey = gl->ClientAPIKey;
         APIToken = gl->APIToken;
+        ADALAPIToken = gl->ADALAPIToken;
         APIBaseUri = gl->APIBaseUri;
         PixelToFeetRatio = gl->PixelToFeetRatio;
         CustomEdges = gl->CustomEdges;
