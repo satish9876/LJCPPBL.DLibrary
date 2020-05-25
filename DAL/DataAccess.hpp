@@ -354,8 +354,10 @@ namespace LJCPPBL_DAL {
                 RestClient::HeaderFields headers;
                 conn->SetTimeout(50);
                 headers["Accept"] = "application/json";
+                headers["Authorization"] = apiToken;
+                headers["Content-Type"] = "application/json";
                 conn->SetHeaders(headers);
-                conn->AppendHeader("Authorization", apiToken);
+                //  conn->AppendHeader("Authorization", apiToken);
                 auto response = conn->get(uri);
                 RestClient::disable();
                 if (response.code == 200) {
